@@ -1,19 +1,26 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useMainStore } from "@/store/index";
 
 defineProps<{ msg: string }>();
+const mainStore = useMainStore();
+const handleChangeName = () => {
+  mainStore.insertPost("修改名称");
+};
 
 const count = ref(0);
 </script>
 
 <template>
+  <h3>{{ mainStore.name }} {{ mainStore.nameLength }}</h3>
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="handleChangeName">change name</button>
+    <button type="button" @click="count++">counts is {{ count }}</button>
     <p>
       Edit
-      <code>components/HelloWorld.vue</code> to test HMR
+      <code>login/LoginPage.vue</code> to test HMR
     </p>
   </div>
 
