@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useMainStore } from "@/store/index";
+import { NButton } from "naive-ui";
 
 defineProps<{ msg: string }>();
 const mainStore = useMainStore();
@@ -16,7 +17,7 @@ const count = ref(0);
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="handleChangeName">change name</button>
+    <n-button @click="handleChangeName">change name</n-button>
     <button type="button" @click="count++">counts is {{ count }}</button>
     <p>
       Edit
